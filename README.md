@@ -1,0 +1,1 @@
+This is the configuration i was able to get working on the AS3935. The I2C failed to work on multipul ESP and Raspberry pi units i tried. Goal was to use an ESP and this was the working config I choose based on manufacture spec sheets.
