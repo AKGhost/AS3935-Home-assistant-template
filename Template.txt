@@ -1,0 +1,41 @@
+Chosen ESP8266 pairing 
+AS3935---ESP8266
+VCC-------3.3
+GND-------GND
+scl-------D5
+MOSI------D7
+MISO------D6
+CS--------D8
+SI--------GND
+IRQ-------D2
+EN_V------GND
+A0--------GND
+A1--------GND
+
+
+captive_portal:
+spi:
+  clk_pin: GPIO14
+  mosi_pin: GPIO13
+  miso_pin: GPIO12
+
+as3935_spi:
+  cs_pin: D8
+  irq_pin: D2
+  indoor: False
+  spike_rejection: 11 # may have to dial it in, WIFI can casue false readings
+  lightning_threshold: 5 # number of strikes before storm alert Generated
+  calibration: True
+
+
+# Example lightning and energy sensor
+sensor:
+  - platform: as3935
+    lightning_energy:
+      name: "Lightning Energy"
+    distance:
+      name: "Distance Storm"
+      
+binary_sensor:
+  - platform: as3935
+    name: "Storm Alert"
